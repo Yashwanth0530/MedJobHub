@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs Provided by Us | Medjobhub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homecss.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Add this CSS for typing effect and animation */
+        .hero {
+            margin: 1rem;
+            font-size: xx-large;
+            color: 007;
+            text-align: left;
+            padding: 3rem 1rem;
+            overflow: hidden; /* Ensures no overflow during animation */
+            white-space: nowrap; /* Prevents text from wrapping */
+            animation: slideDown 0.5s ease forwards; /* Slide down animation */
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px); /* Start slightly above */
+                opacity: 0; /* Start invisible */
+            }
+            to {
+                transform: translateY(0); /* End at original position */
+                opacity: 1; /* End fully visible */
+            }
+        }
+
+       /* General styling for the typing effect */
+       .typing-effect {
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hides text until it's revealed */
+    width: 0; /* Start with width of 0 for typing effect */
+    animation: typing 4s steps(30, end) forwards; /* Typing animation only */
+    caret-color: transparent; /* Hide caret */
+    border-right: none; /* Remove any pseudo "cursor" border if it's applied */
+}
+
+/* Typing animation for larger screens */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; } /* Expand to full width of the container */
+}
+
+/* Optional: Reset focus outline or any browser default behaviors */
+.typing-effect:focus {
+    outline: none;
+}
+
+
+
+
+/* Responsive adjustments using media queries */
+@media screen and (max-width: 768px) {
+    .typing-effect {
+        font-size: 1.5rem; /* Reduce font size for smaller screens */
+        animation: typing 4s steps(25, end) forwards, blink-caret 0.75s step-end infinite;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .typing-effect {
+        font-size: 1rem; /* Further reduce font size for very small screens */
+        animation: typing 4s steps(20, end) forwards, blink-caret 0.75s step-end infinite;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <img src="{{ url_for('static', filename='images/ss11.png') }}" alt="Image" class="stethoscope-img">
+            <h1>MedJobHub</h1>
+            <nav>
+              <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('medabout') }}">About</a></li>
+                <li><a href="{{ url_for('jobs') }}">Jobs</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                {% if 'user' in session %}
+                   
+                  <li><a href="{{ url_for('profile') }}">Profile</a></li>
+              {% else %} 
+                  
+                 <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+                 
+              {% endif %}
+              
+
+              </ul>
+            </nav>
+          </div>
+    </header>
+    {% block content %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-messages">
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+
+
+    <main>
+        <section class="hero">
+            <h1 class="typing-effect">"Empower Your Passion, Shape Lives!"
+             <br>"Join Us for a Healthier Tomorrow!"</h1> <!-- Apply typing effect here -->
+        </section>
+
+        <section class="grid-container">
+            <div class="grid-item">
+                <a href="{{ url_for('supspec') }}">Super Specialization</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('mddoc') }}">MD Doctors</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('mbbs') }}">MBBS Doctors</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('bams') }}">BAMS Doctors</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('dentist') }}">Dentists</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('nurse') }}">Nurse Jobs</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('pharma') }}">Pharma</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('labt') }}">Lab Technicians</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('medrep') }}">Medical Representations</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('paramed') }}">ParaMedical Jobs</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('frontoffice') }}">Front Office Desk</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('insurance') }}">Insurance Consultant</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('admin') }}">Administrators</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('radio') }}">Radiologist</a>
+            </div> 
+            
+             <!-- End of new Physiotherapy option -->
+             <div class="grid-item">
+                 <a href="{{ url_for('ambulance') }}">Ambulance</a> 
+             </div> 
+
+             <!-- Add Physiotherapy option -->
+             <div class="grid-item">
+                 <a href="{{ url_for('physio') }}">Physiotherapy</a> <!-- Link to Physiotherapy page -->
+             </div> 
+         </section>
+
+         <!-- Additional content can go here -->
+
+    </main>
+
+    
+    <footer>
+        <div class="footer-container">
+          <div class="footer-column logo-section">
+            <img src="{{ url_for('static', filename='images/ss11.png') }}" alt="Image">
+              <h1>MedJobHub</h1>
+          </div>
+  
+          
+          <div class="footer-column address-section">
+            <p><strong>MedJobHub Private Limited</strong></p>
+            <p>13/21, 1st Floor, 3rd Cross, 7th Main</p>
+            <p>Syndicate Bank Colony, Banashankari 3rd Stage</p>
+            <p>Bengaluru-560085</p>
+          </div>
+          <div class="footer-column download-section">
+            <h3>Download Our App</h3>
+            <div class="store-buttons">
+              <a href="https://www.apple.com/app-store/" target="_blank">
+                <img
+                  
+                  src="{{ url_for('static', filename='images/appstore2.jpeg') }}"
+                  alt="App Store"
+                  class="store-icon" />
+              </a>
+              <a href="https://play.google.com/" target="_blank">
+                <img src="{{ url_for('static', filename='images/playstore2.jpeg') }}"
+                  class="store-icon" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="social-media">
+            
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <div class="links">
+            <ul>
+              <li><a href="#">Partner With Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Compliance</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Disclaimer</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+      {% endblock %}
+
+</body>
+</html>

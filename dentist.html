@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Dentists | Medjobhub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homecss.css') }}'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif; /* Default font style */
+        }
+       
+        .title {
+            text-align: center; 
+            color: black; 
+            font-size: 3em; 
+            margin-top: 10px; 
+            margin-bottom: 50px; 
+        }
+        .content {
+            position: relative; 
+            z-index: 2; 
+            color: black; 
+            display: flex; 
+            height:auto; /* Allow height to adjust based on content */
+            min-height: 100vh; /* Minimum height to occupy full viewport */
+        }
+        .text-section {
+            flex-basis: 50%; 
+            padding-left: 40px; 
+            padding-right: 40px; 
+            padding-top: 20px; 
+            padding-bottom: 20px; 
+            font-size: small; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+        }
+        h2 {
+           font-size :2em ; /* Consistent font size for subheadings */
+           margin-top :10px ; 
+           color :black ; 
+           margin-bottom :5px ; 
+       }
+        ul{
+        color: black;
+       }
+       
+   </style>
+</head>
+<body>
+   <header>
+      <div class="container">
+        <!-- Logo -->
+        <img src="{{ url_for('static', filename='images/ss11.png') }}" alt="Image" class="stethoscope-img">
+        
+        <!-- Title -->
+        <h1>MedJobHub</h1>
+        
+        <!-- Navigation -->
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('medabout') }}">About</a></li>
+            <li><a href="{{ url_for('jobs') }}">Jobs</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            {% if 'user' in session %}
+                   
+                  <li><a href="{{ url_for('profile') }}">Profile</a></li>
+              {% else %} 
+                  
+                 <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+                 
+              {% endif %}
+            
+           
+
+              
+            <!-- Ensure this is inside <ul> -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-messages">
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+<!-- <button class="back-button" onclick="window.location.href='{{ url_for('jobs') }}'">&#8592; Back</button> -->
+
+<h1 class="title">Dentists</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="flash-messages">
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+<div class="content">
+    <div class="text-section">
+        <h2>Description</h2> <!-- Subheading -->
+        <p style="font-size: x-large;">We are seeking dedicated dentists who are committed to providing excellent oral healthcare. Dentists play a crucial role in diagnosing and treating dental issues while promoting overall oral hygiene. They perform various procedures including examinations, cleanings, fillings, and extractions. Dentists also educate patients on preventive care and healthy habits.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/i9.jpg') }}
+        " alt="Dentist Responsibilities Image" id="image4"> <!-- Image for dentist responsibilities -->
+    </div>
+</div>
+
+<div class="expect-section" id="dentistExpectSection">
+    <!-- Image displayed separately -->
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/i10.jpg') }}
+        " alt="Key Responsibilities Image" id="image5"> <!-- Image for Key Responsibilities -->
+    </div>
+
+    <!-- New container for Key Responsibilities with border -->
+    <div class="responsibilities-border" style="flex-basis:auto;"> <!-- Added padding for spacing -->
+         <!-- Moved h2 here -->
+         <h2 style="margin-top:20px;">Key Responsibilities and Opportunities</h2> <!-- Updated Subheading -->
+         <p>As a dentist, your responsibilities will include:</p>
+         <ul style="text-align:left; font-size: x-large;">
+             <li>Conducting comprehensive dental examinations and assessments.</li>
+             <li>Diagnosing dental diseases and developing treatment plans.</li>
+             <li>Performing restorative procedures such as fillings and crowns.</li>
+             <li>Educating patients Jobs oral hygiene and preventive care.</li>
+             <li>Staying updated with advancements in dental technology and techniques.</li>
+         </ul>
+     </div>
+
+</div>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-column logo-section">
+             <img src="./img/footerlogo.jpg" alt="MedJobHub Logo" class="footer-logo" />
+         </div>
+
+         <div class="footer-column address-section">
+             <p style="color:white;font-size:s small;"><strong>MedJobHub Private Limited</strong></p>
+             <p style="color:white;font-size:s small;">13/21, 1st Floor, 3rd Cross, 7th Main</p>
+             <p style="color:white;font-size:s small;">Syndicate Bank Colony, Banashankari 3rd Stage</p>
+             <p style="color:white;font-size:s small;">Bengaluru-560085</p>
+         </div>
+
+         <div class="footer-column download-section">
+             <h3>Download Our App</h3>
+             <div class="store-buttons">
+                 <a href="https://www.apple.com/app-store/" target="_blank">
+                <img
+                  
+                  src="{{ url_for('static', filename='images/appstore2.jpeg') }}"
+                  alt="App Store"
+                  class="store-icon" />
+              </a>
+              <a href="https://play.google.com/" target="_blank">
+                <img src="{{ url_for('static', filename='images/playstore2.jpeg') }}"
+                  class="store-icon" />
+              </a>
+             </div>
+         </div>
+     </div>
+
+     <div class="footer-bottom">
+         <div class="social-media">
+             <a href="#"><i class="fab fa-facebook-f"></i></a>
+             <a href="#"><i class="fab fa-twitter"></i></a>
+             <a href="#"><i class="fab fa-instagram"></i></a>
+             <a href="#"><i class="fab fa-linkedin"></i></a>
+         </div>
+
+         <div class="links">
+             <ul>
+                 <li><a href="#">Partner With Us</a></li>
+                 <li><a href="#">Careers</a></li>
+                 <li><a href="#">Compliance</a></li>
+                 <li><a href="#">Privacy Policy</a></li>
+                 <li><a href="#">Terms of Service</a></li>
+                 <li><a href="#">Disclaimer</a></li>
+             </ul>
+         </div>
+     </div>
+
+</footer>
+
+<script src="scripts.js"></script>
+
+<script>
+// Trigger animation for description on load
+window.addEventListener('load', function() {
+   const descriptionSection = document.querySelector('.text-section');
+   descriptionSection.classList.add('visible'); // Add visible class when page loads
+   const imageContainer = document.querySelector('.image-container');
+   imageContainer.classList.add('visible'); // Add visible class to image container
+});
+
+window.addEventListener('scroll', function() {
+   const expectSection = document.getElementById('dentistExpectSection');
+   const rect = expectSection.getBoundingClientRect();
+   const windowHeight = window.innerHeight;
+
+   if (rect.top <= windowHeight && rect.bottom >= 0) {
+       expectSection.classList.add('visible'); // Add visible class when in view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.add('visible'); // Add visible class when in view
+   } else {
+       expectSection.classList.remove('visible'); // Remove visible class when out of view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.remove('visible'); // Remove visible class when out of view
+   }
+});
+</script>
+
+</body>
+</html>
