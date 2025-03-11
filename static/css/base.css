@@ -1,0 +1,466 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: #81d9e9; */
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    
+    color: #000;
+  }
+  
+  h2,
+  h3 {
+    color: #0033cc;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  
+  header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px 0;
+  }
+
+  .no-select {
+    user-select: none;
+  }
+
+/* Base Styles */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+/* Logo & Title */
+.logo-title {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.stethoscope-img {
+  height: 4rem;
+  width: 4rem;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.container h1 {
+  font-size: 1.8rem;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Navigation */
+nav {
+  flex-shrink: 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+/* Navigation Links */
+nav ul li a {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+  background-color: white;
+  color: #0033cc;
+  box-shadow: 0px 3px 8px rgba(0, 51, 204, 0.3);
+}
+
+/* Active Page Styling */
+nav ul li a.active {
+  background-color: white;
+  color: #0033cc;
+  font-weight: bold;
+  box-shadow: 0px 3px 8px rgba(0, 51, 204, 0.5);
+}
+
+/* Responsive Styles */
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+  .container {
+    padding: 10px 1.5rem;
+  }
+
+  .container h1 {
+    font-size: 1.5rem;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .stethoscope-img {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
+}
+
+/* Small Screens (Mobile Phones) */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  /* Keep logo & title in one line */
+  .logo-title {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .stethoscope-img {
+    height: 3.5rem;
+    width: 3.5rem;
+    margin-right: 10px;
+  }
+
+  .container h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Move navigation to next line */
+  nav {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  nav ul li {
+    display: inline-block;
+    margin: 5px;
+  }
+
+  nav ul li a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+}
+
+/* Extra Small Screens (Very Small Mobile Phones) */
+@media (max-width: 480px) {
+  .container {
+    padding: 5px;
+  }
+
+  .stethoscope-img {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .container h1 {
+    font-size: 1.2rem;
+  }
+
+  nav ul {
+    gap: 5px;
+  }
+
+  nav ul li a {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+    border-radius: 5px;
+  }
+}
+
+
+
+/* Footer General Styles */
+footer {
+  background-color: #007bff; /* Blue background */
+  color: #ffffff; /* White text color */
+  padding: 20px 10px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Footer Main Container */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+
+/* Logo Section */
+.logo-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.logo-section img {
+  max-width: 100%;
+  height: auto;
+  max-height: 80px;
+}
+
+.logo-section h1 {
+  font-size: 32px;
+  margin: 0;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Address Section */
+.address-section {
+  flex: 2;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.address-section strong {
+  font-size: 16px;
+}
+
+/* Download Section */
+.download-section {
+  flex: 1;
+  text-align: center;
+}
+
+.download-section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.store-icon {
+  height: 50px;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.store-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+/* Social Media Icons */
+.social-media {
+  margin-bottom: 15px;
+}
+
+.social-media a {
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0 10px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-media a:hover {
+  color: #80b3ff;
+  transform: scale(1.2);
+}
+
+/* Footer Links */
+.links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.links ul li {
+  margin: 5px 0;
+}
+
+.links ul li a {
+  color: #d9e6ff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.links ul li a:hover {
+  font-weight: bold;
+  color: #0033cc;
+}
+
+
+/* Responsive Design for Tablets & Small Screens */
+@media (max-width: 980px) {
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+  }
+
+  .logo-section {
+      justify-content: center;
+  }
+
+  .address-section {
+      flex: unset;
+  }
+
+  .store-buttons {
+      flex-direction: row;
+      justify-content: center;
+  }
+
+  .footer-bottom {
+      margin-top: 20px;
+  }
+}
+
+/* Responsive Design for Mobile Screens */
+@media (max-width: 480px) {
+  footer {
+      padding: 15px 5px;
+  }
+
+  .logo-section h1 {
+      font-size: 24px;
+  }
+
+  .logo-section img {
+      max-height: 60px;
+  }
+
+  .address-section {
+      font-size: 13px;
+  }
+
+  .download-section h3 {
+      font-size: 16px;
+  }
+
+  .store-icon {
+      height: 40px;
+  }
+
+  .social-media a {
+      font-size: 14px;
+      margin: 0 8px;
+  }
+
+  .links ul {
+      gap: 10px;
+  }
+
+  .links ul li a {
+      font-size: 13px;
+  }
+}
+
+
+  /* Flash message container */
+.flash-container {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    z-index: 1000;
+    display: none;
+  }
+  
+  /* Flash message styling */
+  .flash-message {
+    margin: 10px auto;
+    padding: 15px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slide-down 0.3s ease-out;
+  }
+  
+  .flash-message.success {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .flash-message.error {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .flash-message.info {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  /* Slide-down animation */
+  @keyframes slide-down {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  

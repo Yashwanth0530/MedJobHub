@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+<head>
+  {% block title%}
+    Sign In | Medjobhub
+  {% endblock %}
+
+  {% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}">
+  {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="container1">
+        <div class="form-box">
+          <h1 id="title">Sign In</h1>
+              
+          <!-- Flash Messages -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              <div class="flash-messages">
+                {% for category, message in messages %}
+                  <div class="flash {{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          {% endwith %}
+    
+          <!-- Sign In Form -->
+          <form id="loginForm" method="POST" action="{{ url_for('signin') }}">
+            <div class="input-group">
+              <div class="input-field">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" placeholder="Username" name="username" required>
+              </div>
+              <div class="input-field">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" placeholder="Password" name="password" required>
+              </div>
+            </div>
+            <div class="btn-field">
+              <button type="submit" id="loginBtn">Login</button>
+            </div>
+          </form>
+    
+          <!-- New User Link -->
+          <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

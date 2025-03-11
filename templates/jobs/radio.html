@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+<head>
+    {% block title%}
+        Radiologists | Medjobhub
+    {% endblock %}
+    {% block link %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+
+<!-- <button class="back-button" onclick="window.location.href='{{ url_for('jobs') }}'">&#8592; Back</button> -->
+
+<h1 class="title" style="color:#2C3E50">Radiologists</h1>
+<div class="content">
+    <div class="text-section">
+        <h2>Description</h2> <!-- Subheading -->
+        <p>We are seeking skilled radiologists who are dedicated to providing high-quality imaging services. Radiologists play a crucial role in diagnosing and treating medical conditions through imaging techniques such as X-rays, MRIs, CT scans, and ultrasounds. They interpret imaging results and collaborate with healthcare teams to ensure accurate diagnoses and effective treatment plans.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/i27.jpg') }}
+        " alt="Radiologist Responsibilities Image" id="image4"> <!-- Image for radiologist responsibilities -->
+    </div>
+</div>
+
+<div class="responsibilities-container">
+
+    <div class="responsibilities-border" style="flex-basis:auto;">
+        <h2>Key Responsibilities and Opportunities</h2>
+        <p>As a radiologist, your responsibilities will include:</p>
+
+        <div class="key-responsibilities">
+            <div class="responsibility-card">
+                <h3>Diagnostic Imaging</h3>
+                <p>Perform MRI, CT scans, X-rays, and ultrasounds to assess patient conditions.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Report Analysis</h3>
+                <p>Interpret imaging results and provide detailed reports for diagnosis.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Physician Collaboration</h3>
+                <p>Consult with doctors to recommend further medical investigations.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Quality Assurance</h3>
+                <p>Ensure imaging equipment operates efficiently and meets safety standards.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Continuous Learning</h3>
+                <p>Stay updated with emerging trends and advancements in radiology.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slogan-section">
+        <h2 class="slogan">🩻 See Beyond the Surface! Become a Radiology Expert & Diagnose with Precision! 🔬</h2>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+
+<script src="scripts.js"></script>
+
+<script>
+// Trigger animation for description on load
+window.addEventListener('load', function() {
+   const descriptionSection = document.querySelector('.text-section');
+   descriptionSection.classList.add('visible'); // Add visible class when page loads
+   const imageContainer = document.querySelector('.image-container');
+   imageContainer.classList.add('visible'); // Add visible class to image container
+});
+
+window.addEventListener('scroll', function() {
+   const expectSection = document.getElementById('radiologistExpectSection');
+   const rect = expectSection.getBoundingClientRect();
+   const windowHeight = window.innerHeight;
+
+   if (rect.top <= windowHeight && rect.bottom >= 0) {
+       expectSection.classList.add('visible'); // Add visible class when in view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.add('visible'); // Add visible class when in view
+   } else {
+       expectSection.classList.remove('visible'); // Remove visible class when out of view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.remove('visible'); // Remove visible class when out of view
+   }
+});
+</script>
+{% endblock %}
+</body>
+</html>

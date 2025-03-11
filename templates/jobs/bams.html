@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+<head>
+    {% block title%}
+      BAMS Doctors | Medjobhub
+    {% endblock %}
+    <title>BAMS Doctors | Medjobhub</title>
+    {% block link %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    {% endblock %}
+       
+</head>
+
+<body>
+  {% block content %}
+
+<!-- <button class="back-button" onclick="window.location.href='{{ url_for('jobs') }}'">&#8592; Back</button> -->
+
+<h1 class="title" style="color:#2C3E50">BAMS Doctors</h1>
+<div class="content">
+    <div class="text-section">
+        <h2>Description</h2> <!-- Subheading -->
+        <p>We are seeking dedicated BAMS (Bachelor of Ayurvedic Medicine and Surgery) doctors who are passionate Jobs providing holistic healthcare. BAMS doctors have completed their degree in Ayurveda and are trained to diagnose and treat various health conditions using traditional Ayurvedic practices. They play an essential role in promoting wellness and preventive care through natural therapies.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/i7.jpg') }}
+        " alt="BAMS Responsibilities Image" id="image4"> <!-- Image for BAMS responsibilities -->
+    </div>
+</div>
+
+<div class="responsibilities-container" >
+     <div class="responsibilities-border" style="flex-basis:auto;"> 
+        <h2>Key Responsibilities and Opportunities</h2>
+        <p>As a BAMS doctor, your responsibilities will include:</p>
+
+        <div class="key-responsibilities">
+            <div class="responsibility-card">
+                <h3>Patient Assessment</h3>
+                <p>Conduct assessments and diagnose health conditions.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Treatment Planning</h3>
+                <p>Develop personalized treatments using Ayurvedic principles.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Preventive Care</h3>
+                <p>Provide diet, lifestyle, and holistic health counseling.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Therapies & Remedies</h3>
+                <p>Administer Ayurvedic therapies and herbal treatments.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Community Outreach</h3>
+                <p>Promote Ayurvedic health education and wellness programs.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slogan-section">
+        <h2 class="slogan">🌿 Healing Through Ayurveda! Step into a Rewarding BAMS Career! 🌍</h2>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+
+<script src="scripts.js"></script>
+
+<script>
+// Trigger animation for description on load
+window.addEventListener('load', function() {
+   const descriptionSection = document.querySelector('.text-section');
+   descriptionSection.classList.add('visible'); // Add visible class when page loads
+   const imageContainer = document.querySelector('.image-container');
+   imageContainer.classList.add('visible'); // Add visible class to image container
+});
+
+window.addEventListener('scroll', function() {
+   const expectSection = document.getElementById('bamsExpectSection');
+   const rect = expectSection.getBoundingClientRect();
+   const windowHeight = window.innerHeight;
+
+   if (rect.top <= windowHeight && rect.bottom >= 0) {
+       expectSection.classList.add('visible'); // Add visible class when in view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.add('visible'); // Add visible class when in view
+   } else {
+       expectSection.classList.remove('visible'); // Remove visible class when out of view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.remove('visible'); // Remove visible class when out of view
+   }
+});
+</script>
+{% endblock %}
+</body>
+</html>

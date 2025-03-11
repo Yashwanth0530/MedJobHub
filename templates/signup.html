@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+<head>
+    {% block title%}
+        Sign Up | Medjobhub
+    {% endblock %}
+
+    {% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <div class="container1">
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form id="signupForm" method="POST" action="{{ url_for('signup') }}">
+                <div class="input-group">
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="First Name" name="first_name" required pattern="[A-Za-z]+" title="First name should contain only letters.">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Last Name" name="last_name" required pattern="[A-Za-z]+" title="Last name should contain only letters.">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Username" name="username" required pattern=".{3,}" title="Username must be at least 3 characters long.">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="tel" placeholder="Phone Number" name="phone" required pattern="[0-9]{10}" title="Phone number must be 10 digits.">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email" name="email" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-address-card"></i>
+                        <textarea 
+                            placeholder="Address" 
+                            name="address" 
+                            required 
+                            minlength="5" 
+                            rows="4" 
+                            cols="30" 
+                            title="Please provide a valid address."
+                            style="resize: none;"></textarea>
+                    </div>
+                    
+                    <div class="input-field">
+                        <i class="fa-solid fa-venus-mars"></i>
+                        <select name="gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-calendar"></i>
+                        <input type="number" placeholder="Age" name="age" required min="18" max="100" title="Age must be between 18 and 100.">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" name="password" required pattern=".{8,}" title="Password must be at least 8 characters long.">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Confirm Password" name="confirm_password" required pattern=".{8,}" title="Passwords must match.">
+                    </div>
+                </div>
+
+                <div class="btn-field">
+                    <button type="submit" id="registerBtn">Register</button>
+                </div>
+            </form>
+            <p id="loginLink">Already have an account? <a href="{{ url_for('signin') }}">Sign In</a></p>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

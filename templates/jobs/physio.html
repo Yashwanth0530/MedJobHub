@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+<head>
+    {% block title%}
+        Physiotherapy | Medjobhub
+    {% endblock %}
+    {% block link %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    {% endblock %}  
+</head>
+<body>
+{% block content %}
+   
+<!-- <button class="back-button" onclick="window.location.href='{{ url_for('jobs') }}'">&#8592; Back</button> -->
+
+<h1 class="title" style="color:#2C3E50">Physiotherapy</h1>
+<div class="content">
+    <div class="text-section">
+        <h2>Description</h2> <!-- Subheading -->
+        <p>We are seeking dedicated physiotherapists who are committed to improving patients' physical health and mobility. Physiotherapists play a crucial role in rehabilitation by assessing patient needs and developing personalized treatment plans. They utilize various techniques including exercises, manual therapy, and education to help patients recover from injuries and manage chronic conditions.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/i31.jpg') }}
+        " alt="Physiotherapist Responsibilities Image" id="image4"> <!-- Image for physiotherapist responsibilities -->
+    </div>
+</div>
+
+<div class="responsibilities-container" >
+   
+    <div class="responsibilities-border" style="flex-basis:auto;"> 
+        <h2>Key Responsibilities and Opportunities</h2>
+        <p>As a physiotherapist, your responsibilities will include:</p>
+
+        <div class="key-responsibilities">
+            <div class="responsibility-card">
+                <h3>Patient Assessments</h3>
+                <p>Evaluate patients' physical abilities and limitations.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Personalized Treatment Plans</h3>
+                <p>Develop customized therapy programs for recovery.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Therapeutic Exercises</h3>
+                <p>Implement treatments to enhance mobility and strength.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Patient Education</h3>
+                <p>Guide patients on injury prevention and self-care techniques.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Healthcare Collaboration</h3>
+                <p>Work with medical teams to ensure comprehensive care.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slogan-section">
+        <h2 class="slogan">🏋️‍♂️ Restore Movement, Transform Lives! Join Physiotherapy & Help Patients Thrive! 💙</h2>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+
+<script src="scripts.js"></script>
+
+<script>
+// Trigger animation for description on load
+window.addEventListener('load', function() {
+   const descriptionSection = document.querySelector('.text-section');
+   descriptionSection.classList.add('visible'); // Add visible class when page loads
+   const imageContainer = document.querySelector('.image-container');
+   imageContainer.classList.add('visible'); // Add visible class to image container
+});
+
+window.addEventListener('scroll', function() {
+   const expectSection = document.getElementById('physioExpectSection');
+   const rect = expectSection.getBoundingClientRect();
+   const windowHeight = window.innerHeight;
+
+   if (rect.top <= windowHeight && rect.bottom >= 0) {
+       expectSection.classList.add('visible'); // Add visible class when in view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.add('visible'); // Add visible class when in view
+   } else {
+       expectSection.classList.remove('visible'); // Remove visible class when out of view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.remove('visible'); // Remove visible class when out of view
+   }
+});
+</script>
+{% endblock %}
+</body>
+</html>

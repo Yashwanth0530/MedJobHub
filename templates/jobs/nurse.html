@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+<head>
+    {% block title%}
+        Nurses | Medjobhub
+    {% endblock %}
+    {% block link %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    {% endblock %}
+</head>
+
+<body>
+{% block content %}
+<!-- <button class="back-button" onclick="window.location.href='{{ url_for('jobs') }}'">&#8592; Back</button> -->
+
+<h1 class="title" style="color:#2C3E50">Nurses</h1>
+
+<div class="content">
+    <div class="text-section">
+        <h2>Description</h2> <!-- Subheading -->
+        <p>We are seeking compassionate and skilled nurses who are dedicated to providing high-quality patient care. Nurses play a vital role in the healthcare system by assessing patient needs, administering medications, and collaborating with healthcare teams to ensure optimal patient outcomes. They are essential in promoting health education and preventive care in various healthcare settings.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/i11.jpg') }}
+        " alt="Nurse Responsibilities Image" id="image4"> <!-- Image for nurse responsibilities -->
+    </div>
+</div>
+
+<div class="responsibilities-container">
+    <div class="responsibilities-border" style="flex-basis:auto;"> 
+        <h2>Key Responsibilities and Opportunities</h2>
+        <p>As a nurse, your responsibilities will include:</p>
+
+        <div class="key-responsibilities">
+            <div class="responsibility-card">
+                <h3>Patient Assessments</h3>
+                <p>Monitor vital signs and conduct patient evaluations.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Medication Administration</h3>
+                <p>Administer prescribed medications and treatments.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Health Education</h3>
+                <p>Educate patients on disease prevention and health management.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Team Collaboration</h3>
+                <p>Work closely with physicians and healthcare teams for patient care.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Patient Records</h3>
+                <p>Maintain accurate documentation and patient history.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slogan-section">
+        <h2 class="slogan">❤️ Care, Compassion, Cure! Be the Heart of Healthcare as a Nurse! 🏥</h2>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+
+<script src="scripts.js"></script>
+
+<script>
+// Trigger animation for description on load
+window.addEventListener('load', function() {
+   const descriptionSection = document.querySelector('.text-section');
+   descriptionSection.classList.add('visible'); // Add visible class when page loads
+   const imageContainer = document.querySelector('.image-container');
+   imageContainer.classList.add('visible'); // Add visible class to image container
+});
+
+window.addEventListener('scroll', function() {
+   const expectSection = document.getElementById('nurseExpectSection');
+   const rect = expectSection.getBoundingClientRect();
+   const windowHeight = window.innerHeight;
+
+   if (rect.top <= windowHeight && rect.bottom >= 0) {
+       expectSection.classList.add('visible'); // Add visible class when in view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.add('visible'); // Add visible class when in view
+   } else {
+       expectSection.classList.remove('visible'); // Remove visible class when out of view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.remove('visible'); // Remove visible class when out of view
+   }
+});
+</script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,827 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #fff;
+  line-height: 1.6;
+
+}
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+}  
+h2,
+h3 {
+  color: #0033cc;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.about {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #2C3E50;
+}
+
+.about h1 {
+  color: #2C3E50;
+  font-weight: 600;
+  font-size: 48px;
+}
+
+.about h2{
+  color: #2C3E50;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.about p {
+  color: #2d2d2d;
+  font-size: 20px;
+}
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem;
+  color: #2d2d2d;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+}
+
+/* Content section (text) */
+.hero-content {
+  max-width: 50%;
+}
+
+/* Image section */
+.hero-image {
+  max-width: 40%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Text Styling */
+.hero h1 {
+  color: #2C3E50;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #2d2d2d;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    gap: 20px;
+  }
+
+  .hero-content {
+    max-width: 90%;
+  }
+
+  .hero-image {
+    max-width: 70%;
+  }
+
+  .about h1 {
+    font-size: 42px;
+  }
+
+  .about h2 {
+    font-size: 34px;
+  }
+
+  .about p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1.5rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    max-width: 70%;
+  }
+
+  .about h1 {
+    font-size: 36px;
+  }
+
+  .about h2 {
+    font-size: 30px;
+  }
+
+  .about p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 1rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    max-width: 80%;
+  }
+
+  .about h1 {
+    font-size: 32px;
+  }
+
+  .about h2 {
+    font-size: 26px;
+  }
+
+  .about p {
+    font-size: 14px;
+  }
+}
+
+.mission-section, .vision-section {
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+}
+
+
+.content-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: transform 0.2s;
+  border: 1px solid #e0e0e0;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+  font-size: 2rem;
+  color: #007BFF;
+  background: #eaf4ff;
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+}
+
+.card p {
+  margin: 0;
+  text-align: left;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .content-container {
+    max-width: 90%;
+  }
+
+  .card {
+    padding: 1.2rem;
+    font-size: 16px;
+  }
+
+  .card-icon {
+    font-size: 1.8rem;
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .card p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mission-section, .vision-section {
+    padding: 2rem 1rem;
+  }
+
+  .card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .card-icon {
+    font-size: 1.6rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card p {
+    text-align: center;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-section, .vision-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .content-container {
+    max-width: 100%;
+  }
+
+  .card {
+    padding: 0.8rem;
+    font-size: 14px;
+  }
+
+  .card-icon {
+    font-size: 1.4rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+}
+
+/* Core Values Section */
+.values-section,
+.impact-section {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* Heading Styles */
+
+/* Flexbox container for cards */
+.value-cards-container,
+.impact-cards-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+/* Card Styles */
+.value-card,
+.impact-card {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 300px;
+  height: 350px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  margin: 1rem; /* Ensure spacing between cards */
+}
+
+.value-card:hover,
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #e0e0e0;
+}
+
+/* Icon Styles */
+.value-card i{
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.impact-card i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.value-card .fa-handshake { color: #28a745; }
+.value-card .fa-cogs { color: #007bff; }
+.value-card .fa-bolt { color: #ffc107; }
+
+.impact-card .fa-briefcase { color: #28a745; }
+.impact-card .fa-hospital { color: #007bff; }
+.impact-card .fa-user-md { color: #ffc107; }
+
+/* Title and Text Styles */
+.value-card h4 {
+  color: #2C3E50;
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.impact-card h4{
+  color: #2C3E50;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.value-card p,
+.impact-card p {
+  color: #000;
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .values-section, .impact-section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .value-cards-container,
+  .impact-cards-container {
+    gap: 1rem;
+  }
+
+  .value-card,
+  .impact-card {
+    width: 280px;
+    height: 300px;
+    padding: 1.5rem;
+  }
+
+  .value-card h4{
+    font-size: 1.5rem;
+  }
+  .impact-card h4 {
+    font-size: 1.3rem;
+  }
+
+  .value-card p,
+  .impact-card p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .values-section, .impact-section {
+    padding: 2rem 1rem;
+  }
+
+  .value-cards-container,
+  .impact-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .value-card,
+  .impact-card {
+    width: 60%;
+    height: 280px;
+    padding: 1.5rem;
+  }
+
+  .value-card i,
+  .impact-card i {
+    font-size: 2.5rem;
+  }
+
+  .value-card h4{
+    font-size: 1.4rem;
+  }
+  .impact-card h4{
+    font-size: 1.2rem;
+  }
+
+  .value-card p,
+  .impact-card p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .values-section, .impact-section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .value-card,
+  .impact-card {
+    width: 70%;
+    padding: 1.2rem;
+  }
+
+  .value-card i,
+  .impact-card i {
+    font-size: 2rem;
+  }
+
+  .value-card h4 {
+    font-size: 1.3rem;
+  }
+  .impact-card h4 {
+    font-size: 1.1rem;
+  }
+
+  .value-card p,
+  .impact-card p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Why Choose MedJobHub Section */
+.why-us-section {
+  background-color: #ffffff; /* White background for the section */
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.reasons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap; /* Ensures responsiveness for smaller screens */
+}
+
+.reason {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  max-width: 350px;
+  padding: 2rem 1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Floating Icon Style */
+.reason i {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+/* Lines under the icons */
+.line {
+  width: 2px;
+  height: 50px;
+  margin-bottom: 1.5rem;
+  transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+/* Reason Text Section */
+.reason-text {
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.reason-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Different Colors for Each Reason */
+.reason:nth-child(1) i {
+  color: #ff5733; /* Orange-red for streamlined recruitment */
+}
+
+.reason:nth-child(2) i {
+  color: #33cc99; /* Teal for pan-India network */
+}
+
+.reason:nth-child(3) i {
+  color: #f39c12; /* Yellow for dedicated support */
+}
+
+/* Color for the lines */
+.reason:nth-child(1) .line {
+  background-color: #ff5733; /* Matching orange-red */
+}
+
+.reason:nth-child(2) .line {
+  background-color: #33cc99; /* Matching teal */
+}
+
+.reason:nth-child(3) .line {
+  background-color: #f39c12; /* Matching yellow */
+}
+
+/* Reason Text Colors */
+.reason:nth-child(1) .reason-text h3 {
+  color: #ff5733;
+}
+
+.reason:nth-child(2) .reason-text h3 {
+  color: #33cc99;
+}
+
+.reason:nth-child(3) .reason-text h3 {
+  color: #f39c12;
+}
+
+.reason-text p {
+  color: #555; /* Standard text color */
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Hover Effect */
+.reason:hover {
+  transform: translateY(-5px); /* Lift the reason on hover */
+}
+
+.reason:hover i {
+  transform: translateY(-5px); /* Lift the icon on hover */
+}
+
+.reason:hover .line {
+  height: 70px; /* Increase line height on hover */
+  background-color: #000; /* Change line color to black on hover */
+}
+
+@media (max-width: 1024px) {
+  .why-us-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .reasons {
+    gap: 2rem;
+  }
+
+  .reason {
+    max-width: 300px;
+    padding: 1.8rem 1rem;
+  }
+
+  .reason i {
+    font-size: 2.7rem;
+  }
+
+  .reason-text h3 {
+    font-size: 1.4rem;
+  }
+
+  .reason-text p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-us-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .reasons {
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .reason {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+  }
+
+  .reason i {
+    font-size: 2.5rem;
+  }
+
+  .reason-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .reason-text p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-us-section {
+    padding: 2rem 0.5rem;
+  }
+
+  .reason {
+    padding: 1.5rem;
+  }
+
+  .reason i {
+    font-size: 2rem;
+  }
+
+  .reason-text h3 {
+    font-size: 1.2rem;
+  }
+
+  .reason-text p {
+    font-size: 0.85rem;
+  }
+}
+
+
+/* Video and Subscription Section */
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin:0px 32px 50px;
+  padding:50px 32px 32px;
+  box-sizing: border-box;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden; /* Ensures no content spills out */
+}
+
+.video-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 100%; /* Ensures the container doesn't exceed the wrapper's width */
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.video-container iframe {
+  width: 100%; /* Adapts to the container's width */
+  height: 350px;
+  max-width: 100%; /* Ensures the iframe doesn't overflow */
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.subscription-box {
+  flex: 1;
+  min-width: 300px;
+  max-width: 100%; /* Ensures the box fits within the wrapper */
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.subscription-box h2 {
+  font-size: 24px;
+  color: #0033cc;
+  margin-bottom: 10px;
+}
+
+.subscription-box p {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.subscription-box form {
+  width: 100%;
+}
+
+.subscription-box form input,
+.subscription-box form button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.subscription-box form input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.subscription-box form button {
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  max-width: 8rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subscription-box form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center the content */
+    gap: 20px; /* Reduce gap between elements */
+  }
+
+  .video-container,
+  .subscription-box {
+    min-width: 90%; /* Allow content to take up more width */
+    max-width: 100%;
+  }
+
+  .video-container iframe {
+    height: 300px; /* Reduce video height for smaller screens */
+  }
+
+  .subscription-box h2 {
+    font-size: 20px; /* Adjust heading size */
+  }
+
+  .subscription-box p {
+    font-size: 14px; /* Adjust paragraph size */
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 20px; /* Reduce padding */
+    gap: 15px; /* Reduce gap between items */
+  }
+
+  .video-container,
+  .subscription-box {
+    min-width: 90%; /* Take full width */
+    max-width: 100%;
+  }
+
+  .video-container iframe {
+    height: 250px; /* Further reduce video height */
+  }
+
+  .subscription-box h2 {
+    font-size: 18px; /* Adjust heading size */
+  }
+
+  .subscription-box p {
+    font-size: 14px; /* Adjust paragraph size */
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 15px; /* Further reduce padding */
+    gap: 10px; /* Tighten the gap */
+  }
+
+  .video-container,
+  .subscription-box {
+    min-width: 90%; /* Full width */
+    max-width: 100%;
+  }
+
+  .video-container iframe {
+    height: 200px; /* Reduce video height */
+  }
+
+  .subscription-box h2 {
+    font-size: 16px; /* Reduce heading font size */
+  }
+
+  .subscription-box p {
+    font-size: 12px; /* Reduce paragraph font size */
+  }
+
+  .subscription-box form input,
+  .subscription-box form button {
+    padding: 12px; /* Reduce padding */
+  }
+}

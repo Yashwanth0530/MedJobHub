@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+<head>
+    {% block title%}
+        Jobs Provided by Us | Medjobhub
+    {% endblock %}
+    {% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+    {% endblock %}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    {% block content %}
+    <main>
+        <section class="hero">
+            <h1 class="typing-effect">"Empower Your Passion, Shape Lives!"
+             <br>"Join Us for a Healthier Tomorrow!"</h1> 
+        </section>
+
+        <p class="job-info">Explore job opportunities—click to view more details!</p>
+
+        <section class="grid-container">
+            <div class="grid-item">
+                <a href="{{ url_for('supspec') }}">Super Specialization</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('mddoc') }}">MD Doctors</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('mbbs') }}">MBBS Doctors</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('bams') }}">BAMS Doctors</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('dentist') }}">Dentists</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('nurse') }}">Nurse Jobs</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('pharma') }}">Pharma</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('labt') }}">Lab Technicians</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('medrep') }}">Medical Representations</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('paramed') }}">ParaMedical Jobs</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('frontoffice') }}">Front Office Desk</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('insurance') }}">Insurance Consultant</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('admin') }}">Administrators</a>
+            </div>
+            <div class="grid-item">
+                <a href="{{ url_for('radio') }}">Radiologist</a>
+            </div> 
+            
+             <!-- End of new Physiotherapy option -->
+             <div class="grid-item">
+                 <a href="{{ url_for('ambulance') }}">Ambulance</a> 
+             </div> 
+
+             <!-- Add Physiotherapy option -->
+             <div class="grid-item">
+                 <a href="{{ url_for('physio') }}">Physiotherapy</a> <!-- Link to Physiotherapy page -->
+             </div> 
+         </section>
+
+         
+
+         <!-- Additional content can go here -->
+
+    </main>
+      {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,995 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: #81d9e9; */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  
+  color: #000;
+}
+
+h2,
+h3 {
+  color: #0033cc;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f8fc;
+  padding: 50px;
+  gap: 4rem;
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 50%;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  color: #2d2d2d;
+  margin-bottom: 20px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 20px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.hero-content .cta-button {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-content .cta-button:hover {
+  background-color: #0056b3;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 90%; /* Slightly smaller to match text content */
+  max-width: 500px; /* Prevents excessive stretching */
+  max-height: 80vh; /* Ensures it doesn't become too large */
+  object-fit: contain; /* Maintains aspect ratio */
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+    gap: 2rem;
+  }
+
+  .hero-content {
+    max-width: 80%;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .hero-image {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 30px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .hero-content .cta-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 20px;
+    gap: 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .hero-content .cta-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+  }
+}
+
+/* Search Section */
+.search-bar {
+  background-color: #007bff; /* Blue background */
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border: #007bff;
+}
+
+/* Flexbox for form layout */
+.search-bar form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* Space between elements */
+  width: 100%;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Search field container */
+.search-field {
+  flex: 1;
+  min-width: 250px; /* Minimum width for search inputs */
+}
+
+.search-bar input,
+.search-bar select {
+  width: 100%; /* Full width */
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: black;
+}
+
+/* Input focus effects */
+.search-bar input:focus,
+.search-bar select:focus {
+  border-color: #0056b3;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Search Button */
+.search-bar button {
+  flex-shrink: 0; /* Prevents button from shrinking */
+  padding: 12px 20px;
+  background-color: white;
+  color: #007bff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  min-width: 120px; /* Ensure button has a minimum width */
+}
+
+.search-bar button:hover {
+  background-color: #f0f0f0; /* Light gray background on hover */
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .search-bar {
+    padding: 1rem;
+  }
+
+  .search-bar form {
+    flex-wrap: wrap; /* Allows wrapping without stacking vertically */
+    gap: 15px;
+    justify-content: center; /* Keeps elements centered */
+  }
+
+  .search-field {
+    flex: 1 1 30%; /* Allows fields to shrink and take up at least 30% of space */
+    min-width: 200px; /* Prevents fields from becoming too small */
+  }
+
+  .search-bar button {
+    min-width: 150px; /* Ensures button remains a reasonable size */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .search-bar {
+    padding: 1rem;
+  }
+
+  .search-bar form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center; /* Centers elements */
+  }
+
+  .search-field:nth-child(1),
+  .search-field:nth-child(2) {
+    flex: 1 1 45%; /* First two fields take up 45% width */
+    min-width: 180px;
+  }
+
+  .search-field:nth-child(3),
+  .search-field:nth-child(4) {
+    flex: 1 1 100%; /* Next two fields take full width */
+    max-width: 400px; /* Centers them with a max-width */
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-bar button {
+    flex-shrink: 0; /* Prevents button from stretching */
+    min-width: 150px; /* Ensures button has a reasonable width */
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    padding: 0.8rem;
+  }
+
+  .search-bar form {
+    gap: 8px;
+  }
+
+  .search-bar button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Statistics Section */
+.impact {
+  background-color: #f9fafc;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.impact h1 {
+  font-size: 32px;
+  color: #0033cc;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.impact .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px; /* Equal space between cards */
+  margin: 0 auto; /* Center the cards */
+  max-width: 1200px; /* Ensures the container doesn't stretch too wide */
+  flex-wrap: no-wrap; /* Prevent cards from wrapping to the next line */
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  flex: 1;
+  min-width: 200px; /* Ensures the cards don’t shrink too much */
+  max-width: 280px; /* Set the maximum width for the cards */
+  height: 250px; /* Set a standard height */
+  min-height: 250px; /* Ensures consistency */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 0; /* No extra margin on the card itself */
+  box-sizing: border-box; /* Make sure padding is included in width calculations */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content */
+  align-items: center; /* Aligns content horizontally */
+}
+
+
+.stat-card h2 {
+  font-size: 36px;
+  color: #0033cc;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.stat-card p {
+  font-size: 18px;
+  color: #666666;
+  margin-top: 10px;
+}
+
+/* Adding icons to the card */
+.stat-card i {
+  font-size: 48px;
+  color: #0033cc;
+  margin-bottom: 15px;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 1024px) {
+  .impact .container {
+    gap: 20px; /* Reduce gap for better spacing */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center-align cards */
+  }
+
+  .stat-card {
+    width: 280px; /* Fixed width for uniformity */
+    min-height: 250px; /* Ensure same height */
+    flex: none; /* Prevent cards from shrinking */
+  }
+}
+
+@media (max-width: 768px) {
+  .impact .container {
+    flex-direction: column; /* Stack cards in a single column */
+    align-items: center; /* Center-align cards */
+  }
+
+  .stat-card {
+    width: 300px; /* Maintain consistent width */
+    min-height: 250px; /* Maintain height */
+  }
+}
+
+@media (max-width: 480px) {
+  .impact h1 {
+    font-size: 28px; /* Reduce heading size */
+  }
+
+  .stat-card {
+    width: 300px; /* Keep all cards the same width */
+    min-height: 250px; /* Consistent height */
+    padding: 20px; /* Adjust padding */
+  }
+
+  .stat-card h2 {
+    font-size: 28px; /* Adjust number size */
+  }
+
+  .stat-card p {
+    font-size: 16px; /* Adjust text size */
+  }
+
+  .stat-card i {
+    font-size: 40px; /* Adjust icon size */
+  }
+}
+
+/* Why Choose Section */
+.why-choose {
+  background-color: #f9fafc;
+  padding: 40px 20px; /* Adjusted padding */
+  text-align: center;
+}
+
+.why-choose h1 {
+  font-size: 32px;
+  color: #0033cc;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.benefits {
+  display: flex;
+  justify-content: space-evenly; /* Ensures equal spacing between cards */
+  gap: 20px; /* Adjust space between the cards */
+  align-items: flex-start; /* Align cards to the top */
+  flex-wrap: nowrap; /* Prevent cards from wrapping to the next line */
+}
+
+.benefit-item {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1 1 30%; /* Ensures each card takes up 30% of the container's width */
+  max-width: 380px; /* Optional: limits the card size */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.icon-wrapper {
+  background-color: #0033cc;
+  color: white;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 32px;
+}
+
+.benefit-item h3 {
+  font-size: 20px;
+  color: #333333;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.benefit-item p {
+  font-size: 16px;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* Optional: Rearrange cards order */
+.benefit-item:nth-child(2) {
+  order: 3;  /* Move Online Job Portal to the middle */
+}
+
+.benefit-item:nth-child(3) {
+  order: 2;  /* Move Experienced Professionals to the last */
+}
+
+.benefit-item:nth-child(1) {
+  order: 1;  /* Health Focused stays in the first position */
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+  .benefits {
+    gap: 15px; /* Reduce gap for better spacing */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    justify-content: center; /* Center-align the items */
+  }
+
+  .benefit-item {
+    flex: 1 1 45%; /* 2 items per row on medium screens */
+    max-width: 340px; /* Keep all cards uniform */
+  }
+}
+
+@media (max-width: 768px) {
+  .benefits {
+    flex-direction: row;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center;
+  }
+
+  .benefit-item {
+    flex: 1 1 100%; /* 1 item per row for smaller screens */
+    max-width: 400px; /* Keeps width consistent */
+  }
+}
+
+@media (max-width: 480px) {
+  .why-choose h1 {
+    font-size: 28px; /* Reduce heading size for small screens */
+  }
+
+  .benefit-item {
+    width: 90%; /* Ensure cards don’t stretch too wide */
+    max-width: 350px; /* Consistent width */
+    padding: 15px; /* Reduce padding */
+  }
+
+  .benefit-item h3 {
+    font-size: 18px; /* Adjust heading size */
+  }
+
+  .benefit-item p {
+    font-size: 14px; /* Reduce text size */
+  }
+
+  .icon-wrapper {
+    width: 60px; /* Reduce icon size */
+    height: 60px;
+    font-size: 28px;
+  }
+}
+
+
+/* Featured Jobs Section */
+.featured-jobs {
+  background-color: #f9fafc;
+  padding: 20px;
+  text-align: center;
+}
+
+.featured-jobs h1 {
+  font-size: 32px;
+  color: #0033cc;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+/* Job Card */
+.job-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  border-radius: 12px;
+  width: 340px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Stack contents vertically */
+  justify-content: space-between; /* Distribute space between elements */
+}
+
+.jobs-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 30px;
+}
+
+.job-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.job-card h3 {
+  font-size: 20px;
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+.job-card p {
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.job-card a.apply-button {
+  display: block;
+  text-align: center;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  max-width: 8rem;
+  margin: 2rem auto 1rem auto;
+}
+
+.job-card a.apply-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* For screens 1024px and smaller */
+@media (max-width: 1024px) {
+  .jobs-container {
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center align for better spacing */
+    gap: 20px; /* Ensure consistent spacing between the cards */
+  }
+
+  .job-card {
+    flex: 1 1 calc(50% - 20px); /* Two cards per row */
+    max-width: 340px; /* Keep the card width fixed */
+  }
+}
+
+/* For screens 768px and smaller */
+@media (max-width: 768px) {
+  .jobs-container {
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .job-card {
+    flex: 1 1 calc(50% - 20px); /* Two cards per row */
+    max-width: 340px; /* Ensure consistent width */
+  }
+}
+
+/* For screens 480px and smaller */
+@media (max-width: 480px) {
+  .jobs-container {
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center;
+    gap: 15px; /* Slightly reduced gap */
+  }
+
+  .job-card {
+    flex: 1 1 100%; /* One card per row */
+    max-width: 340px; /* Keep the card width fixed */
+  }
+
+  .job-card h3 {
+    font-size: 18px; /* Adjust title size */
+  }
+
+  .job-card p {
+    font-size: 14px; /* Adjust paragraph text size */
+  }
+}
+
+/* Success Unlocked Section */
+.user-stories {
+  background-color: #f9fafc;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.user-stories h1 {
+  font-size: 32px;
+  color: #0033cc;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.story-cards {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  gap: 30px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.story-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  max-width: 320px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.story-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.user-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: center;
+  margin-bottom: 15px;
+  border: 2px solid #0033cc;
+}
+
+.card-content {
+  text-align: left;
+}
+
+.quote {
+  font-size: 16px;
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.rating {
+  font-size: 18px;
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.story-card h4 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0033cc;
+  margin-top: 10px;
+}
+
+.user-role {
+  font-size: 14px;
+  color: #666666;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .story-cards {
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center align for better spacing */
+    gap: 20px; /* Adjust space between the cards */
+  }
+
+  .story-card {
+    width: 45%; /* Cards take up 45% of the width */
+    max-width: 320px; /* Maintain max width */
+  }
+}
+
+@media (max-width: 768px) {
+  .story-cards {
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center align for better spacing */
+    gap: 20px; /* Adjust space between the cards */
+  }
+
+  .story-card {
+    width: 90%; /* Cards take up 90% of the container width */
+    max-width: 320px; /* Keep the max width for consistency */
+  }
+
+  .quote {
+    font-size: 14px; /* Reduce quote font size */
+  }
+
+  .rating {
+    font-size: 16px; /* Adjust rating font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .story-cards {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center; /* Center the cards */
+  }
+
+  .story-card {
+    width: 90%; /* Allow cards to take 90% of the container width */
+    max-width: 320px; /* Keep a consistent max-width */
+    margin-bottom: 20px; /* Add spacing between the cards */
+  }
+
+  .quote {
+    font-size: 12px; /* Reduce quote font size */
+  }
+
+  .rating {
+    font-size: 14px; /* Reduce rating font size */
+  }
+}
+
+
+/* Video and Subscription Section */
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin:0px 32px 50px;
+  padding:50px 32px 32px;
+  box-sizing: border-box;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden; /* Ensures no content spills out */
+}
+
+.video-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 100%; /* Ensures the container doesn't exceed the wrapper's width */
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.video-container iframe {
+  width: 100%; /* Adapts to the container's width */
+  height: 350px;
+  max-width: 100%; /* Ensures the iframe doesn't overflow */
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.subscription-box {
+  flex: 1;
+  min-width: 300px;
+  max-width: 100%; /* Ensures the box fits within the wrapper */
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.subscription-box h2 {
+  font-size: 24px;
+  color: #0033cc;
+  margin-bottom: 10px;
+}
+
+.subscription-box p {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.subscription-box form {
+  width: 100%;
+}
+
+.subscription-box form input,
+.subscription-box form button {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.subscription-box form input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.subscription-box form button {
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  max-width: 8rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subscription-box form button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center the content */
+    gap: 20px; /* Reduce gap between elements */
+  }
+
+  .video-container,
+  .subscription-box {
+    min-width: 90%; /* Allow content to take up more width */
+    max-width: 100%;
+  }
+
+  .video-container iframe {
+    height: 300px; /* Reduce video height for smaller screens */
+  }
+
+  .subscription-box h2 {
+    font-size: 20px; /* Adjust heading size */
+  }
+
+  .subscription-box p {
+    font-size: 14px; /* Adjust paragraph size */
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 20px; /* Reduce padding */
+    gap: 15px; /* Reduce gap between items */
+  }
+
+  .video-container,
+  .subscription-box {
+    min-width: 90%; /* Take full width */
+    max-width: 100%;
+  }
+
+  .video-container iframe {
+    height: 250px; /* Further reduce video height */
+  }
+
+  .subscription-box h2 {
+    font-size: 18px; /* Adjust heading size */
+  }
+
+  .subscription-box p {
+    font-size: 14px; /* Adjust paragraph size */
+  }
+}
+
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 15px; /* Further reduce padding */
+    gap: 10px; /* Tighten the gap */
+  }
+
+  .video-container,
+  .subscription-box {
+    min-width: 90%; /* Full width */
+    max-width: 100%;
+  }
+
+  .video-container iframe {
+    height: 200px; /* Reduce video height */
+  }
+
+  .subscription-box h2 {
+    font-size: 16px; /* Reduce heading font size */
+  }
+
+  .subscription-box p {
+    font-size: 12px; /* Reduce paragraph font size */
+  }
+
+  .subscription-box form input,
+  .subscription-box form button {
+    padding: 12px; /* Reduce padding */
+  }
+}
+

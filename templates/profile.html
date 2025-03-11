@@ -1,0 +1,484 @@
+{% extends "base.html" %}
+<head>
+  {% block title%}
+    User Profile
+  {% endblock %}
+
+  {% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+  {% endblock %}
+</head>
+{% block content %}
+  <script>
+    // Save social links
+    function normalizeUrl(url) {
+  // Check if URL is empty or already contains http(s)://
+  if (!url) return null; // Return null if the URL is empty
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url; // Return as is if the URL already has the protocol
+  }
+  // Add http:// if the protocol is missing
+  return "http://" + url;
+}
+
+function callSaveLinks() {
+  const socialLinks = {
+    website: normalizeUrl(document.getElementById("website").value),
+    github: normalizeUrl(document.getElementById("github").value),
+    twitter: normalizeUrl(document.getElementById("twitter").value),
+    instagram: normalizeUrl(document.getElementById("instagram").value),
+    facebook: normalizeUrl(document.getElementById("facebook").value),
+  };
+
+  fetch('/profile/save_social_links', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ links: socialLinks })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert("Social links saved successfully!");
+    } else {
+      alert("Error saving social links: " + data.message);
+    }
+  })
+  .catch(error => console.error('Error:', error));
+}
+
+    // Save generic section data
+    function saveSectionData(event, field) {
+      event.preventDefault();
+      const textValue = document.getElementById(`${field}-text`).value;
+
+      fetch(`/profile/save_${field}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: textValue })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.result === "success") {
+          displaySavedData(field, textValue);
+          alert(`${field.charAt(0).toUpperCase() + field.slice(1)} saved successfully.`);
+        } else {
+          alert(`Error saving ${field}: ${data.message}`);
+        }
+      })
+      .catch(error => console.error('Error:', error));
+    }
+    function saveWorkExperience() {
+    // Get the work experience from the textarea
+    const workExperience = document.getElementById('workexperience-text').value;
+
+    // Check if work experience is entered
+    if (!workExperience.trim()) {
+        alert('Please enter your work experience');
+        return;
+    }
+
+    const data = { data: workExperience };
+
+    fetch('/profile/save_workexperience', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.result === 'Work experience saved successfully') {
+            alert('Work experience saved successfully!');
+        } else {
+            alert('Error: ' + data.result);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+// Add event listener to the "Save" button for work experience
+document.addEventListener('DOMContentLoaded', function () {
+    // Add event listener after DOM is fully loaded
+    document.getElementById('save-workexperience-btn').addEventListener('click', saveWorkExperience);
+});
+
+
+
+// Function to save skills
+document.addEventListener('DOMContentLoaded', function () {
+    // Add event listener after DOM is fully loaded
+    const saveSkillsBtn = document.getElementById('save-skills-btn');
+    
+    if (saveSkillsBtn) {
+        saveSkillsBtn.addEventListener('click', saveSkills);
+    } else {
+        console.error('Save button not found');
+    }
+});
+
+// Function to save skills
+function saveSkills() {
+    // Get the skills from the textarea
+    const skills = document.getElementById('skills-text').value;
+
+    // Check if skills are entered
+    if (!skills.trim()) {
+        alert('Please enter your skills');
+        return;
+    }
+
+    const data = { data: skills };
+
+    fetch('/profile/save_skills', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.result === 'Skills saved successfully') {
+            alert('Skills saved successfully!');
+        } else {
+            alert('Error: ' + data.result);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+// Add event listener to the "Save" button
+document.addEventListener('DOMContentLoaded', function () {
+    // Add event listener after DOM is fully loaded
+    document.getElementById('save-skills-btn').addEventListener('click', saveSkills);
+});
+
+
+
+
+
+    // Save education with optional file
+    function saveEducation() {
+    // Get the education details from the textarea
+    const education = document.getElementById('education-text').value;
+
+    // Check if education details are entered
+    if (!education.trim()) {
+        alert('Please enter your education details');
+        return;
+    }
+
+    const data = { data: education };
+
+    // Send the data to the Flask route via fetch
+    fetch('/profile/save_education', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.result === 'Education saved successfully') {
+            alert('Education saved successfully!');
+        } else {
+            alert('Error: ' + data.result);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+// Add event listener to the "Save" button
+document.addEventListener('DOMContentLoaded', function () {
+    // Add event listener after DOM is fully loaded
+    document.getElementById('save-education-btn').addEventListener('click', saveEducation);
+});
+function updateFileName() {
+        const fileInput = document.getElementById('certifications-file');
+        const fileNameDisplay = document.getElementById('file-name-display');
+        const fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file chosen';
+        fileNameDisplay.textContent = `Selected file: ${fileName}`;  // Display the file name
+    }
+
+
+
+    // Save certifications with optional file
+    function saveCertifications() {
+        const certificationsFile = document.getElementById('certifications-file').files[0];
+        const certificationsText = document.getElementById('certifications-text').value;
+
+        const formData = new FormData();
+        formData.append('certifications_text', certificationsText);
+        if (certificationsFile) formData.append('certifications_file', certificationsFile);
+
+        fetch('/profile/upload_certifications', { method: 'POST', body: formData })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Certifications saved successfully!");
+
+                    // Display the file name and link if necessary
+                    if (data.file_path) {
+                        const fileName = data.file_path.split('/').pop();  // Extract file name
+                        const linkContainer = document.getElementById('uploaded-file-link');
+                        linkContainer.innerHTML = `<a href="/profile/view_certifications/${fileName}" target="_blank">View Uploaded File</a>`;
+                    }
+                } else {
+                    alert("Error saving certifications: " + data.error);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+   
+
+
+
+// Attach the event listener after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    const saveButton = document.getElementById('save-certificates-btn');
+    if (saveButton) {
+        saveButton.addEventListener('click', saveCertifications);
+    }
+});
+
+
+
+    // Toggle between edit and save
+    function toggleEditSave(field) {
+      const textField = document.getElementById(`${field}-text`);
+      const saveBtn = document.getElementById(`save-${field}-btn`);
+      const editBtn = document.getElementById(`edit-${field}-btn`);
+
+      if (textField.disabled) {
+        textField.disabled = false;
+        saveBtn.style.display = "inline-block";
+        editBtn.style.display = "none";
+      } else {
+        saveBtn.click();
+      }
+    }
+
+    function fetchProfileData() {
+  fetch('/profile/get_skills')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('skills_display').textContent = data.data || "No skills added";
+    });
+
+  fetch('/profile/get_work_experience')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('work_experience_display').textContent = data.data || "No work experience added";
+    });
+
+  fetch('/profile/get_education')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('education_display').textContent = data.data || "No education details added";
+    });
+}
+
+
+    function populateProfileFields(data) {
+      const { social_links, education_text, skills, work_experience, certifications } = data;
+
+      document.getElementById("website").value = social_links.website || "";
+      document.getElementById("github").value = social_links.github || "";
+      document.getElementById("twitter").value = social_links.twitter || "";
+      document.getElementById("instagram").value = social_links.instagram || "";
+      document.getElementById("facebook").value = social_links.facebook || "";
+
+      document.getElementById("education-text").value = education_text || "";
+      document.getElementById("skills-text").value = skills || "";
+      document.getElementById("work_experience-text").value = work_experience || "";
+      document.getElementById("certifications-text").value = certifications || "";
+
+      disableFieldsIfDataExists();
+    }
+
+    // Disable fields if data exists
+    function disableFieldsIfDataExists() {
+      const fields = ["education", "skills", "work_experience", "certifications"];
+      fields.forEach(field => {
+        const textField = document.getElementById(`${field}-text`);
+        if (textField.value.trim() !== "") {
+          textField.disabled = true;
+          document.getElementById(`save-${field}-btn`).style.display = "none";
+          document.getElementById(`edit-${field}-btn`).style.display = "inline-block";
+        }
+      });
+    }
+
+    // Generate resume
+    function generateResume() {
+  // Send request to the server to generate the resume PDF
+  fetch('/generate_resume', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    // You can include any other form data here if needed
+    // body: JSON.stringify({ data: 'yourDataHere' })
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.blob();  // Get the PDF file as a Blob
+    } else {
+      throw new Error("Failed to generate resume. Please try again.");
+    }
+  })
+  .then(blob => {
+    // Create a link element to trigger download
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'generated_resume.pdf';  // Set filename for download
+    link.click();  // Trigger the download
+    window.URL.revokeObjectURL(url);  // Clean up the object URL
+  })
+  .catch(error => {
+    console.error('Error:', error);  // Handle errors and notify the user
+    alert('An error occurred while generating the resume. Please try again.');
+  });
+}
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", function () {
+  // Trigger the generateResume function when the user clicks the button
+  const resumeButton = document.getElementById("generate-resume-btn");
+  if (resumeButton) {
+    resumeButton.addEventListener("click", generateResume);
+  } else {
+    console.error("Generate resume button not found!");
+  }
+}); 
+  </script>
+</head>
+<body>
+  <div class="profile-container">
+    <div class="profile-header">
+      <div class="profile-pic">
+        <img src="{{ user.profile_pic_url }}" alt="Profile Picture">
+        <button class="edit-btn">Edit</button>
+      </div>
+      <h2>{{ user.username }}</h2>
+    </div>
+
+    <div class="profile-data">
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Phone:</strong> {{ user.phone }}</p>
+        <p><strong>Gender:</strong> {{ user.gender }}</p>
+        <p><strong>Age:</strong> {{ user.age }}</p>
+        <p><strong>Address:</strong> {{ user.address }}</p>
+      </div>
+
+      <div class="social-links">
+        <h2>Social Links</h2>
+        <form id="social-links-form">
+          <div class="input-group">
+            <label for="website">Website:</label>
+            <input type="url" id="website" placeholder="Enter your website URL" value="{{user_profile.website}}" required>
+          </div>
+          <div class="input-group">
+            <label for="github">GitHub:</label>
+            <input type="url" id="github" placeholder="Enter your GitHub URL" value="{{user_profile.github}}" required>
+          </div>
+          <div class="input-group">
+            <label for="twitter">Twitter:</label>
+            <input type="url" id="twitter" placeholder="Enter your Twitter URL" value="{{user_profile.twitter}}" required>
+          </div>
+          <div class="input-group">
+            <label for="instagram">Instagram:</label>
+            <input type="url" id="instagram" placeholder="Enter your Instagram URL" value="{{user_profile.instagram}}" required>
+          </div>
+          <div class="input-group">
+            <label for="facebook">Facebook:</label>
+            <input type="url" id="facebook" placeholder="Enter your Facebook URL" value="{{user_profile.facebook}}" required>
+          </div>
+          <button onclick="callSaveLinks()" type="button" id="save-links-btn">Save Links</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Education</h2>
+      
+      
+      <textarea id="education-text" placeholder="Enter your education details...">{{user_profile.education}}</textarea>
+      <button type="button" id="save-education-btn">Save</button>
+      <button type="button" id="edit-education-btn" style="display:none;">Edit</button>
+      <div class="input-group">
+        <label for="education-file">Upload Education Documents :</label>
+        <input type="file" id="education-file" accept=".pdf,.doc,.docx,.jpg,.png">
+      </div>
+    </div>
+    
+
+    <div class="section">
+      <h2>Skills</h2>
+      <textarea id="skills-text" placeholder="Enter your skills...">{{user_profile.skills}}</textarea>
+      <button type="button" id="save-skills-btn">Save</button>
+      <button type="button" id="edit-skills-btn" style="display:none;">Edit</button>
+  </div>
+
+  <div class="section">
+    <h2>Work Experience</h2>
+    <textarea id="workexperience-text" placeholder="Enter your work experience...">{{user_profile.work_experience}}</textarea>
+    <button type="button" id="save-workexperience-btn">Save</button>
+    <button type="button" id="edit-workexperience-btn" style="display:none;">Edit</button>
+</div>
+
+    
+
+<div class="section">
+  <h2>Certifications and Achievements</h2>
+  <textarea id="certifications-text" placeholder="Enter your certifications and achievements...">{{ user_profile.certifications }}</textarea>
+  <div class="input-group">
+      <label for="certifications-file">Upload Certification Documents:</label>
+      <input type="file" id="certifications-file" accept=".pdf,.doc,.docx,.jpg,.png">
+  </div>
+  <div id="uploaded-file-link"></div> <!-- Placeholder for file link -->
+  <button type="button" id="save-certificates-btn">Save</button>
+</div>
+
+
+    
+
+    <div class="section">
+      <h3>Generate Resume</h3>
+      <!-- When clicked, this button sends a POST request to the Flask backend -->
+      <button id="generate-resume-btn">Generate Resume</button>
+      <p id="resume-warning" style="color: red; display: none;">
+        Please complete all sections before generating your resume.
+      </p>
+    </div>
+    
+
+    <div class="parent-container">
+      <button id="logout">Logout</button>
+  </div>
+  
+  <script>
+      // Add event listener for the logout button
+      document.getElementById('logout').addEventListener('click', function() {
+          // Redirect to the logout route
+          window.location.href = "{{ url_for('logout') }}";
+      });
+  </script>
+  
+  </div>
+  {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+<head>
+  {% block title%}
+    Front Office Desk | Medjobhub
+  {% endblock %}
+  {% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  {% endblock %}
+</head>
+<body>
+  {% block content %}
+
+<!-- <button class="back-button" onclick="window.location.href='{{ url_for('jobs') }}'">&#8592; Back</button> -->
+
+<h1 class="title" style="color:#2C3E50">Front Office Desk</h1>
+<div class="content">
+    <div class="text-section">
+        <h2>Description</h2> <!-- Subheading -->
+        <p>We are looking for organized and friendly front office desk personnel who are dedicated to providing excellent customer service in healthcare settings. Front office staff play a crucial role in managing patient interactions and ensuring smooth operations within medical facilities. They are responsible for greeting patients, scheduling appointments, handling inquiries, and maintaining patient records.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/i21.jpg') }}
+        " alt="Front Office Responsibilities Image" id="image4"> <!-- Image for front office responsibilities -->
+    </div>
+</div>
+
+<div class="responsibilities-container">
+  <div class="responsibilities-border" style="flex-basis:auto;"> 
+      <h2>Key Responsibilities and Opportunities</h2>
+      <p>As a front office desk personnel, your responsibilities will include:</p>
+
+      <div class="key-responsibilities">
+          <div class="responsibility-card">
+              <h3>Welcoming Visitors</h3>
+              <p>Greet and assist patients and guests in a professional manner.</p>
+          </div>
+          <div class="responsibility-card">
+              <h3>Appointment Management</h3>
+              <p>Schedule and manage patient appointments efficiently.</p>
+          </div>
+          <div class="responsibility-card">
+              <h3>Communication</h3>
+              <p>Answer phone calls, respond to inquiries, and direct patients accordingly.</p>
+          </div>
+          <div class="responsibility-card">
+              <h3>Record Keeping</h3>
+              <p>Maintain accurate patient records and ensure proper documentation.</p>
+          </div>
+          <div class="responsibility-card">
+              <h3>Coordination</h3>
+              <p>Work closely with medical staff to streamline front office operations.</p>
+          </div>
+      </div>
+  </div>
+  <div class="slogan-section">
+    <h2 class="slogan">📞 First Impressions Matter! Join Our Front Office Team & Welcome Patients with Care! 😊</h2>
+    <button class="apply-btn">Apply Now</button>
+</div>
+</div>
+
+
+<script src="scripts.js"></script>
+
+<script>
+// Trigger animation for description on load
+window.addEventListener('load', function() {
+   const descriptionSection = document.querySelector('.text-section');
+   descriptionSection.classList.add('visible'); // Add visible class when page loads
+   const imageContainer = document.querySelector('.image-container');
+   imageContainer.classList.add('visible'); // Add visible class to image container
+});
+
+window.addEventListener('scroll', function() {
+   const expectSection = document.getElementById('frontOfficeExpectSection');
+   const rect = expectSection.getBoundingClientRect();
+   const windowHeight = window.innerHeight;
+
+   if (rect.top <= windowHeight && rect.bottom >= 0) {
+       expectSection.classList.add('visible'); // Add visible class when in view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.add('visible'); // Add visible class when in view
+   } else {
+       expectSection.classList.remove('visible'); // Remove visible class when out of view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.remove('visible'); // Remove visible class when out of view
+   }
+});
+</script>
+{% endblock %}
+</body>
+</html>

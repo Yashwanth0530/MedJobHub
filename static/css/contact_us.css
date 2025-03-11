@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafc;
+    color: #333;
+  }
+  
+  /* Navigation menu styling */
+  header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px  0;
+  }
+  
+
+  /* Contact Us Section */
+  .contact-us {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    /* margin-top: 30px; */
+  }
+  
+  
+  /* Contact Container */
+  .contact-container {
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    width: 80%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: stretch; /* Ensure both image and form stretch to the same height */
+    /* gap: 20px; */
+  }
+  
+  /* Left Half: Image */
+  .contact-image {
+    width: 50%;
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+  }
+  
+  .contact-image img {
+    width: 100%; /* Make image fill the container's width */
+    height: 100%; /* Ensure image height matches the container height */
+    object-fit: cover; /* Ensure the image covers the area of its container */
+    border-radius: 10px;
+  }
+
+  /* .stethoscope-img{
+    margin-right: 0px;
+  } */
+  
+  
+  /* Right Half: Contact Form */
+  .contact-form {
+    width: 45%; /* Set form width same as the image */
+    padding: 30px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure form elements are spaced evenly */
+    border-radius: 15px;
+  }
+  
+  
+  .contact-form h1 {
+    font-size: 32px;
+    color: #0033cc;
+    margin-bottom: 10px;
+  }
+  .contact-form .subtitle {
+    margin-bottom: 10px; /* Added margin-bottom to create space */
+  }
+  
+  /* Subtitle styling */
+  .contact-form .subtitle {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 8px;
+    font-style: italic;
+    margin-top: 8px;
+  }
+  
+  /* Form Labels */
+  .contact-form label {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+    margin-top: 15px;
+  }
+  
+  /* Input fields and textarea with increased font size */
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px; /* Reduced padding */
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px; /* Reduced font size */
+  }
+  
+  /* Make the textarea smaller */
+  .contact-form textarea {
+    height: 100px; /* Reduce height */
+    resize: vertical; /* Allow manual resizing */
+  }
+  
+  /* Change border color to blue on focus */
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #007bff;  /* Blue border on focus */
+    outline: none;           /* Remove default focus outline */
+  }
+  
+  /* Submit button styling */
+  .contact-form .submit-button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    max-width: 8rem; /* Set a max width for the button */
+    width: 100%; /* Let it adjust within the max-width */
+    margin: 20px auto 0; /* Center the button horizontally with margin auto */
+  }
+  
+  
+  .contact-form .submit-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  .contact-form .submit-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Media Queries for Responsiveness */
+  
+  @media (max-width: 1024px) {
+    .contact-image {
+      width: 85%;
+      
+    }
+  
+    .contact-form {
+      width: 85%; /* Full width for smaller screens */
+      padding: 15px;
+    }
+  
+    .contact-container {
+      flex-direction: column; /* Stack form and image vertically */
+      gap: 20px;
+      align-items: center;
+    }
+  }
+  
+  /* Responsive Design: Small Mobile */
+  @media (max-width: 768px) {
+    .contact-image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .contact-form {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .contact-form h1 {
+      font-size: 28px; /* Adjust heading size */
+    }
+  
+    .contact-form .subtitle {
+      font-size: 18px;
+    }
+  
+    .contact-form label {
+      font-size: 16px;
+    }
+  
+    .contact-form input,
+    .contact-form textarea {
+      font-size: 14px; /* Slightly smaller font for mobile */
+    }
+  
+    .contact-form .submit-button {
+      font-size: 16px;
+      padding: 10px 15px;
+    }
+  }

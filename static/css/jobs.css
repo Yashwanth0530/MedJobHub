@@ -1,0 +1,683 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+}
+
+.expect-section {
+  display: flex;
+  flex-direction: row; /* Align items in a row */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space between the image and text */
+  border-radius: 30px;
+  padding: 40px;
+  margin-top: 30px;
+}
+.title {
+  text-align: center; 
+  color: #2C3E50; 
+  /* font-size: 3em;  */
+  margin-top: 10px; 
+  margin-bottom: 50px; 
+}
+.content {
+  position: relative; 
+  z-index: 2; 
+  color: #2C3E50; 
+  display: flex; 
+  height:auto; /* Allow height to adjust based on content */
+  min-height: 100vh; /* Minimum height to occupy full viewport */
+}
+.text-section {
+  flex-basis: 50%; 
+  padding: 50px;
+  line-height: 1.6;
+  color: #2C3E50;
+  font-size: 20px; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+}
+.responsibilities-border h2 {
+  /* white-space: nowrap; Prevents text from wrapping */
+  
+  
+  flex-basis: 100%; /* Adjust to prevent wrapping */
+}
+.responsibilities-border p{
+   /* white-space: nowrap; Prevents text from wrapping */
+  
+  
+  flex-basis: 70%;
+}
+h2 {
+  /* Consistent font size for subheadings */
+ margin-top :10px ; 
+ color: #2C3E50;
+ margin-bottom :5px ; 
+}
+ul{
+  color: #2C3E50;
+}
+
+.image-container {
+  flex-basis: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px; /* Optional: If you want the container itself to be rounded */
+  
+  position: relative;
+  overflow: hidden; /* Prevents hover effects from going outside */
+  padding: 10px; /* Adds spacing around the image */
+}
+
+.image-container img {
+  width: auto;  /* Ensures the image maintains its natural width */
+  max-width: 100%; /* Prevents it from overflowing */
+  height: auto; /* Keeps aspect ratio intact */
+  border-radius: 10px; /* Apply rounded corners to the image */
+  transition: box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Hover Effect */
+.image-container img:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  filter: brightness(1.1); /* Slight brightness increase */
+}
+
+
+
+
+.responsibilities-border {
+  flex-basis: 100%;
+  line-height: 1.6;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 100%;
+  padding: 30px;
+  margin-left: 20px;
+  color: #2C3E50;
+  font-size: 20px;
+}
+
+.responsibilities-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px; /* Increased Gap for Better Layout */
+  margin-top: 50px;
+}
+
+.slogan-section {
+  flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: justify;
+  align-items: center; /* Centered content */
+  background-color: #e6f0ff;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  margin-right: 100px;
+  transform: translate(-100px, -130px); /* Moves left & slightly up */
+}
+
+/* Slogan Styling */
+.slogan {
+  color: #2C3E50;
+  font-size: 1.8rem; /* Slightly reduced */
+  font-weight: bold;
+  line-height: 2.5rem; /* Increased line spacing */
+  text-align: center;
+  margin-bottom: 20px;
+  max-width: 90%; /* Prevents text from stretching */
+}
+
+/* Apply Button */
+.apply-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px; /* Reduced Button Size */
+  font-size: 1rem; /* Smaller Font */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.apply-btn:hover {
+  background-color: #0033cc;
+}
+
+/* 🔹 Responsive Fixes for Various Devices */
+@media screen and (max-width: 1200px) {
+  .slogan-section {
+    transform: translate(-50px, -100px); /* Adjust positioning */
+    padding: 40px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .responsibilities-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .slogan-section {
+    width: 90%;
+    transform: translate(0, -80px); /* Centers on smaller screens */
+    margin-right: 0;
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slogan-section {
+    transform: translate(0, -50px); /* Less movement on smaller screens */
+    padding: 25px;
+  }
+  .slogan {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slogan-section {
+    width: 95%;
+    padding: 20px;
+    transform: translate(0, -30px); /* Minimal movement */
+  }
+  .slogan {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+  .apply-btn {
+    font-size: 0.9rem;
+    padding: 6px 14px; /* Smaller button */
+  }
+}
+
+
+
+.key-responsibilities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  width: 100%;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Zigzag effect using nth-child */
+.responsibility-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  position: relative;
+  width:100%;
+  /* max-width: 50%; */
+}
+
+.responsibility-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.responsibility-card h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.responsibility-card p {
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Zigzag Layout */
+.responsibility-card:nth-child(odd) {
+  margin-left: 0; /* Stick to the left */
+  align-self: flex-start;
+}
+
+.responsibility-card:nth-child(even) {
+  margin-left: auto; /* Push to the right */
+  align-self: flex-end;
+}
+
+
+
+/* Responsive Design */
+/* @media (max-width: 1024px) {
+  .key-responsibilities-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem; /* Adjust padding for smaller screens */
+  /* } */
+
+
+  /* .key-responsibilities-image,
+  .key-responsibilities-text {
+    max-width: 90%;
+  } */
+/* } */ 
+
+
+.title {
+  text-align: center; 
+  color: #0033cc; 
+  font-size: 48px;  
+  margin-top: 10px; 
+  margin-bottom: 50px; 
+}
+.content {
+  position: relative; 
+  z-index: 2; 
+  color: black; 
+  display: flex; 
+  height:auto; /* Allow height to adjust based on content */
+  min-height: 100vh; /* Minimum height to occupy full viewport */
+}
+/* General Styles for Text Section */
+/* General Styles for Text Section */
+/* General layout for larger screens */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Ensure each section/card has a proper size */
+/* Ensure the container wraps properly */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Ensures content and images are positioned correctly */
+.text-section, 
+.image-container, 
+.responsibilities-border {
+    flex: 1;
+    max-width: 45%;
+    min-width: 300px;
+}
+@media (max-width: 1024px) { /* Tablet screens */
+  .content {
+      flex-direction: column;
+      align-items: center;
+      /* text-align: center; */
+  }
+  .content h2{
+    font-size: 34px;
+  }
+  .text-section{
+    padding-left: 40px; 
+    padding-right: 40px; 
+    padding-top: 20px; 
+    padding-bottom: 20px;
+  }
+
+
+  .image-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .image-container img {
+      width: 75%; /* Adjust image size */
+      height: auto;
+  }
+
+  .expect-section {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .key-responsibilities {
+      /* display: flex;
+      flex-direction: column; */
+      align-items: center;
+  }
+
+  .responsibility-card {
+      width: 80%;
+      margin-bottom: 15px;
+  }
+
+  .key-responsibilities-title {
+      font-size: 1.8rem; /* Adjust font size */
+      max-width: 85%; 
+      text-align: center;
+      white-space: normal;
+      overflow-wrap: break-word;
+      margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) { /* Smaller tablets and large smartphones */
+  .content, .expect-section {
+      flex-direction: column;
+      /* text-align: center; */
+      align-items: center;
+  }
+
+  .image-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+  }
+
+  .image-container img {
+      width: 85%; /* Reduce image size for smaller screens */
+      height: auto;
+  }
+
+  .key-responsibilities {
+      /* flex-direction: column; */
+      align-items: center;
+  }
+
+  .responsibility-card {
+      width: 90%;
+      text-align: center;
+  }
+
+  .key-responsibilities-title {
+      font-size: 1.5rem; /* Reduce size for medium screens */
+      max-width: 80%;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) { /* Mobile screens */
+  .container {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 10px;
+  }
+
+  .text-section, 
+  .image-container, 
+  .responsibilities-border {
+    width: 100%;
+    margin-bottom: 15px;
+    
+
+  }
+  .text-section{
+  padding-left: 0px; 
+  padding-right: 0px; 
+  padding-top: 0px; 
+  padding-bottom: 0px;
+  }
+  .content h1, .title h1{
+    font-size: 32px;
+  }
+
+  .content h2 {
+    font-size: 26px; /* Reduce heading size */
+  }
+
+  .content p {
+    font-size: 14px; /* Reduce paragraph text size */
+  }
+
+  /* .key-responsibilities-title {
+    font-size: 1.2rem !important; /* Ensure it reduces on smaller screens */
+    /* white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+    line-height: 1.3; */
+  /* } */ 
+  .responsibilities-border h2{
+    padding-left: 0px; 
+    padding-right: 0px; 
+    padding-top: 0px; 
+    padding-bottom: 0;
+  }
+  
+  .title{
+    font-size: 32px;
+  }
+
+  .responsibility-card {
+      width: 95%; /* Make cards fully responsive */
+      text-align: center;
+      padding-right: 20px;
+      align-self:flex-start;
+      transform: translateX(-100px);
+  }
+  .responsibilities-border{
+    font-size:14px;
+  }
+}
+
+@media (max-width: 320px) { /* Extra small screens */
+  .key-responsibilities-title {
+    font-size: 1rem; /* Further reduce font size */
+    max-width: 95%;
+    text-align: center;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.2;
+  }
+
+  .text-section h2 {
+    font-size: 0.9rem;
+  }
+
+  .text-section p {
+    font-size: 0.7rem;
+  }
+}
+
+
+
+
+
+.job-info {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.hero {
+  margin: 1rem;
+  font-size: xx-large;
+  color: black;
+  text-align: left;
+  padding: 3rem 1rem;
+}
+
+/* Add this CSS for typing effect and animation */
+.hero {
+  margin: 1rem;
+  font-size: xx-large;
+  color: 007;
+  text-align: left;
+  padding: 3rem 1rem;
+  overflow: hidden; /* Ensures no overflow during animation */
+  white-space: nowrap; /* Prevents text from wrapping */
+  animation: slideDown 0.5s ease forwards; /* Slide down animation */
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px); /* Start slightly above */
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        transform: translateY(0); /* End at original position */
+        opacity: 1; /* End fully visible */
+    }
+}
+
+   /* General styling for the typing effect */
+   .typing-effect {
+white-space: nowrap; /* Prevent text from wrapping */
+overflow: hidden; /* Hides text until it's revealed */
+width: 0; /* Start with width of 0 for typing effect */
+animation: typing 4s steps(30, end) forwards; /* Typing animation only */
+caret-color: transparent; /* Hide caret */
+border-right: none; /* Remove any pseudo "cursor" border if it's applied */
+}
+
+/* Typing animation for larger screens */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; } /* Expand to full width of the container */
+}
+
+/* Optional: Reset focus outline or any browser default behaviors */
+.typing-effect:focus {
+  outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .hero {
+    font-size: 1.2rem; /* Reduce font size slightly */
+    padding: 2.5rem 1rem;
+  }
+
+  .job-info{
+  font-size: 1.3rem;
+  }
+}
+body {
+  overflow-x: hidden; /* Prevent side scrolling */
+}
+
+@media (max-width: 768px) {
+  .hero {
+    /* text-align: center; Center-align text for better readability */
+    font-size: 1rem;
+    padding: 2rem 1rem;
+  }
+  
+  .typing-effect {
+    animation: typing 3s steps(25, end) forwards; /* Faster typing for smaller screens */
+  }
+
+  .job-info{
+    font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    font-size: .8rem; /* Further reduce font size */
+    padding: 1.5rem 0.5rem;
+  }
+
+  .typing-effect {
+    animation: typing 2.5s steps(20, end) forwards; /* Even faster typing */
+  }
+  .job-info{
+    font-size: 0.9rem;
+    }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+}
+
+/* Adjust grid layout for smaller screens */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+    padding: 1rem; /* Adjust padding for mobile */
+  }
+}
+
+
+.grid-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.grid-item a {
+  text-decoration: none;
+  padding: 1rem;
+  color:black;
+  font-weight: bold;
+  display: block; /* Makes the entire grid-item clickable */
+  height: 100%; /* Ensures link covers the full grid-item */
+  width: 100%;
+}
+
+.grid-item:hover {
+  background-color: #0033cc;
+  color: white;
+  transform: translateY(-5px); /* Adds a lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item:hover a {
+  color: white; /* Ensures text remains visible on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+    padding: 3rem;
+  }
+}
+
+/* Center the 16th Grid Item on Larger Screens */
+@media (min-width: 768px) {
+  .grid-item:nth-child(16) {
+    grid-column: 2; /* Keeps it centered */
+  }
+}
+
+
+
+

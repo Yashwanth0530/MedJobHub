@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{{ url_for('static', filename='images/ss11.jpg') }}" type="image/x-icon">
+    <title>
+      {% block title %}
+        Base Template
+      {% endblock %}
+    </title>
+    <script
+      src="https://kit.fontawesome.com/b97bed285c.js"
+      crossorigin="anonymous"></script>
+    {% block link %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    {% endblock %}
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo-title">
+      <img src="{{ url_for('static', filename='images/ss11.png') }}" alt="Image" class="stethoscope-img no-select">
+        <h1 class="no-select" >MedJobHub</h1>
+      </div>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a></li>
+            <li><a href="{{ url_for('medabout') }}" class="{% if request.endpoint == 'medabout' %}active{% endif %}">About</a></li>
+            <li><a href="{{ url_for('jobs') }}" class="{% if request.path[:5] == '/jobs' %}active{% endif %}">Jobs</a></li>
+            <li><a href="{{ url_for('contact') }}" class="{% if request.endpoint == 'contact' %}active{% endif %}">Contact</a></li>
+            {% if 'user_id' in session %}
+                <li><a href="{{ url_for('profile') }}" class="{% if request.endpoint == 'profile' %}active{% endif %}">Profile</a></li>
+            {% elif request.endpoint == 'signin' %}
+                <li><a href="{{ url_for('signup') }}" class="active">Sign Up</a></li>
+            {% elif request.endpoint == 'signup' %}
+                <li><a href="{{ url_for('signin') }}" class="active">Sign In</a></li>
+            {% else %}
+                <li><a href="{{ url_for('signin') }}" class="{% if request.endpoint == 'signin' %}active{% endif %}">Sign In</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+</header>
+    <main>
+      <!-- {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          <div class="flash-messages">
+            {% for category, message in messages %}
+              <div class="flash {{ category }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %} -->
+
+      <div class="flash-container" id="flash-container">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-column logo-section">
+          <img class="no-select" src="{{ url_for('static', filename='images/ss11.png') }}" alt="Image">
+            <h1 class="no-select">MedJobHub</h1>
+        </div>
+
+        
+        <div class="footer-column address-section">
+          <p><strong>MedJobHub Private Limited</strong></p>
+          <p>13/21, 1st Floor, 3rd Cross, 7th Main</p>
+          <p>Syndicate Bank Colony, Banashankari 3rd Stage</p>
+          <p>Bengaluru-560085</p>
+        </div>
+        <div class="footer-column download-section">
+          <h3>Download Our App</h3>
+          <div class="store-buttons">
+              <a href="https://www.apple.com/app-store/" target="_blank">
+                <img
+                  src="{{ url_for('static', filename='images/appstore2.jpeg') }}"
+                  alt="App Store"
+                  class="store-icon" />
+              </a>
+              <a href="https://play.google.com/" target="_blank">
+                <img src="{{ url_for('static', filename='images/playstore2.jpeg') }}"
+                  class="store-icon" />
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="social-media">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="links">
+          <ul>
+            <li><a href="#">Partner With Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Compliance</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>

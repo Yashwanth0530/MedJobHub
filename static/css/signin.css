@@ -1,0 +1,373 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #fff;
+}
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+}  
+h2,
+h3 {
+  color: #0033cc;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container1 {
+  width: 100%;
+  height: 90vh; /* Full viewport height */
+  background: #ffffff82;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 500px;
+  height: 520px; /* Height increased */
+  background: white;
+  padding: 40px 40px; /* Adjusted padding */
+  text-align: center;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  color: #0033cc;
+  border: 3px solid #00000022;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items from the top */
+}
+
+.form-box h1 {
+  font-size: 40px; /* Increased header size */
+  margin-top: 0; /* No top margin */
+  margin-bottom: 30px; /* Increased bottom margin */
+  color: #007bff;
+}
+
+.form-box h1::after {
+  content: '';
+  width: 70px;
+  height: 5px;
+  background: #007bff;
+  display: block;
+  margin: 12px auto 0;
+}
+
+/* Input Fields */
+.input-field {
+  background: #eaeaea;
+  margin: 25px 0; /* Increased margin between input fields */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+}
+
+input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: none;
+  padding: 12px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.btn-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+  margin-bottom: 20px; /* Increased gap below button */
+
+}
+
+.btn-field button {
+  padding: 13px 28px;
+background-color: #007bff;
+color: white;
+font-size: 18px;
+font-weight: bold;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+margin-bottom: 10px;
+}
+
+.btn-field button:hover {
+  background-color: #0056b3;
+}
+/* .btn-field button {
+  padding: 14px 28px;
+  font-size: 20px;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-field button:hover {
+  background-color: #007bff;
+} */
+
+form p {
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+form p a {
+  text-decoration: none;
+  color: #0033cc;
+  font-weight: bold;
+}
+
+
+.container1 {
+  width: 100%;
+  height: 90vh;
+  background: #ffffff82;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.form-box {
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  background: white;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  color: #0033cc;
+  border: 3px solid #00000022;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.form-box h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: #007bff;
+}
+
+.form-box h1::after {
+  content: '';
+  width: 70px;
+  height: 5px;
+  background: #007bff;
+  display: block;
+  margin: 12px auto 0;
+}
+
+/* Input Fields */
+.input-field {
+  background: #eaeaea;
+  margin: 20px 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+}
+
+input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: none;
+  padding: 12px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.btn-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.btn-field button {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-field button:hover {
+  background-color: #0056b3;
+}
+
+form p {
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+form p a {
+  text-decoration: none;
+  color: #0033cc;
+  font-weight: bold;
+}
+
+/* ======== RESPONSIVE DESIGN ======== */
+@media (max-width: 768px) {
+  .container1 {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .form-box {
+    width: 100%;
+    max-width: 80%;
+    padding: 30px;
+  }
+
+  .form-box h1 {
+    font-size: 32px;
+  }
+
+  .input-field {
+    padding: 10px 15px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .btn-field button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  form p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-box {
+    padding: 25px;
+  }
+
+  .form-box h1 {
+    font-size: 28px;
+  }
+
+  .input-field {
+    margin: 15px 0;
+    padding: 8px 12px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn-field {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-field button {
+    font-size: 16px;
+    width: 100%;
+    padding: 12px;
+  }
+
+  form p {
+    font-size: 12px;
+  }
+}
+
+
+ /* Flash message container */
+ .flash-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: none; /* Initially hidden */
+}
+
+/* Flash message container */
+.flash-container {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 600px;
+  z-index: 1000;
+  display: none; /* Initially hidden */
+}
+
+/* Flash message styling */
+.flash-message {
+  margin: 10px auto;
+  padding: 15px 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slide-down 0.3s ease-out;
+}
+
+.flash-message.success {
+  background-color: #4caf50;
+  color: white;
+}
+
+.flash-message.error {
+  background-color: #f44336;
+  color: white;
+}
+
+.flash-message.info {
+  background-color: #2196f3;
+  color: white;
+}
+
+/* Slide-down animation */
+@keyframes slide-down {
+  from {
+      transform: translateY(-100%);
+  }
+  to {
+      transform: translateY(0);
+  }
+}

@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+<head>
+    {% block title%}
+        Paramedical Jobs | Medjobhub
+    {% endblock %}
+    {% block link %}
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/jobs.css') }}">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+<!-- <button class="back-button" onclick="window.location.href='{{ url_for('jobs') }}'">&#8592; Back</button> -->
+
+<h1 class="title" style="color:#2C3E50">Paramedical Jobs</h1>
+<div class="content">
+    <div class="text-section">
+        <h2>Description</h2> <!-- Subheading -->
+        <p>We are looking for skilled paramedical professionals who are dedicated to providing essential healthcare services. Paramedical staff play a critical role in supporting doctors and nurses by performing diagnostic tests, assisting in patient care, and ensuring that medical facilities run smoothly. They are trained in specialized areas such as laboratory technology, radiology, physiotherapy, and emergency medical services.</p>
+    </div>
+
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='images/i19.jpg') }}
+        " alt="Paramedical Responsibilities Image" id="image4"> <!-- Image for paramedical responsibilities -->
+    </div>
+</div>
+
+<div class="responsibilities-container">
+    <div class="responsibilities-border" style="flex-basis:auto;"> 
+        <h2>Key Responsibilities and Opportunities</h2>
+        <p>As a paramedical professional, your responsibilities will include:</p>
+
+        <div class="key-responsibilities">
+            <div class="responsibility-card">
+                <h3>Diagnostic Assistance</h3>
+                <p>Help conduct medical tests and diagnostic procedures.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Patient Care</h3>
+                <p>Support patient care and rehabilitation programs.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Equipment Management</h3>
+                <p>Maintain and ensure medical equipment is operational.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Health Education</h3>
+                <p>Educate patients on health management and preventive care.</p>
+            </div>
+            <div class="responsibility-card">
+                <h3>Team Collaboration</h3>
+                <p>Work with healthcare teams to improve patient outcomes.</p>
+            </div>
+        </div>
+    </div>
+    <div class="slogan-section">
+        <h2 class="slogan">🚑 Fast, Skilled, Life-Saving! Join Our Paramedical Team Today! 💙</h2>
+        <button class="apply-btn">Apply Now</button>
+    </div>
+</div>
+
+
+<script src="scripts.js"></script>
+
+<script>
+// Trigger animation for description on load
+window.addEventListener('load', function() {
+   const descriptionSection = document.querySelector('.text-section');
+   descriptionSection.classList.add('visible'); // Add visible class when page loads
+   const imageContainer = document.querySelector('.image-container');
+   imageContainer.classList.add('visible'); // Add visible class to image container
+});
+
+window.addEventListener('scroll', function() {
+   const expectSection = document.getElementById('paramedicalExpectSection');
+   const rect = expectSection.getBoundingClientRect();
+   const windowHeight = window.innerHeight;
+
+   if (rect.top <= windowHeight && rect.bottom >= 0) {
+       expectSection.classList.add('visible'); // Add visible class when in view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.add('visible'); // Add visible class when in view
+   } else {
+       expectSection.classList.remove('visible'); // Remove visible class when out of view
+       
+       const imageContainer = expectSection.querySelector('.image-container');
+       imageContainer.classList.remove('visible'); // Remove visible class when out of view
+   }
+});
+</script>
+{% endblock %}
+</body>
+</html>
